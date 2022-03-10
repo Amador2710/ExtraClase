@@ -3,6 +3,7 @@ import java.net.PortUnreachableException;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/*Esta es la clase que se utilizará para controlar los clientes*/
 public class ClientHandler implements Runnable {
 
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
@@ -18,6 +19,7 @@ public class ClientHandler implements Runnable {
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.clientUsername = bufferedReader.readLine();
             clientHandlers.add(this);
+            /*Aquí se administrarán los mennsajes que aparecen cuando una persona se une al chat*/
             broadcastMessage("Servidor:" + clientUsername + " ha entrado al chat!");
         } catch (IOException e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
@@ -52,9 +54,10 @@ public class ClientHandler implements Runnable {
             }
         }
     }
-
+    /*Aquí se administrarán los clientes que salen del chat*/
     public void removeClientHandler(){
         clientHandlers.remove(this);
+        /*Aquí se administrarán los mennsajes que aparecen cuando una persona se salió al chat*/
         broadcastMessage("Servidor:" + clientUsername + "salió del chat");
     }
 

@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/*Clase servidor para iniciar el servidor del chat*/
+
 public class Server {
 
     private ServerSocket serverSocket;
@@ -14,7 +16,7 @@ public class Server {
         this.serverSocket = serverSocket;
         return null;
     }
-
+/*Aqui es donde ocurre la magia que permite iniciar el servidor*/
     public void  startServer() {
 
         try {
@@ -32,7 +34,7 @@ public class Server {
         } catch (IOException e) {
         }
     }
-
+/*Aqui es donde se hace que el servidor se cierre*/
     public void closeServerSocket() {
         try {
             if(serverSocket != null) {

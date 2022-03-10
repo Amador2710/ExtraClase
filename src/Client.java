@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-
+/*Aquí se agregan los clientes que utilizarán el chat*/
 public class Client {
 
     private Socket socket;
@@ -20,7 +20,7 @@ public class Client {
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
     }
-
+    /*Aquí se administrarán los mensajes respecto a que cliente lo envió*/
     public void sendMessage() {
         try {
             bufferedWriter.write(username);
@@ -72,7 +72,7 @@ public class Client {
             e.printStackTrace();
         }
     }
-
+    /*Aquí pide a cada cliente que ingrese su nombre de usuario antes de que envé los mensajes*/
     public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
